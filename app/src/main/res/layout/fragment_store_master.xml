@@ -12,6 +12,7 @@
 
     </data>
 
+    <!--Scrollview containing a Linear layout as child, this linear layout will contain list of shoes stored , as requested on course instructions -->
 
     <ScrollView
         android:layout_width="match_parent"

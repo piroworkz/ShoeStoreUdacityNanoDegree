@@ -15,7 +15,6 @@ import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentStoreMasterBinding
 import com.udacity.shoestore.ui.store.common.StoreSharedViewModel
 import com.udacity.shoestore.ui.utils.collectFlow
-import com.udacity.shoestore.ui.utils.log
 
 class StoreMasterFragment : Fragment(R.layout.fragment_store_master), MenuProvider {
 
@@ -25,24 +24,15 @@ class StoreMasterFragment : Fragment(R.layout.fragment_store_master), MenuProvid
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentStoreMasterBinding.bind(view)
-
         setUpMenuHost()
 
-        viewLifecycleOwner.collectFlow(viewModel.state) {
-            it.shoes.toString().log("StoreMasterFragment")
-            binding.shoes = it.shoes
-        }
+        viewLifecycleOwner.collectFlow(viewModel.state) { binding.shoes = it.shoes }
 
     }
 
     private fun setUpMenuHost() {
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
-
-        viewLifecycleOwner.collectFlow(viewModel.state) {
-            it.shoes.toString().log("StoreMasterFragment")
-            binding.shoes = it.shoes
-        }
     }
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {

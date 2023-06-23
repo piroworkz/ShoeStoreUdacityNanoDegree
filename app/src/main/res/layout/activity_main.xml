@@ -23,6 +23,8 @@
 
     </data>
 
+    <!--Coordinator layout to contain app bar, NavHostFragment and Fab -->
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/rootLayout"
         android:layout_width="match_parent"

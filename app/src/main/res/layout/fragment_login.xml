@@ -12,6 +12,8 @@
             type="Function0" />
     </data>
 
+    <!--Very simple layout showing 2 input text views and buttons , on a vertical orientation ,  no need for constraint layout-->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

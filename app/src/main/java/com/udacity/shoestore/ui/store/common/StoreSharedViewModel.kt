@@ -14,42 +14,21 @@ class StoreSharedViewModel : ViewModel() {
 
     data class State(
         val shoes: List<Shoe> = emptyList(),
-        val shoeName: String? = null,
-        val shoeCompany: String? = null,
-        val shoeSize: String? = null,
-        val shoeDescription: String? = null,
+        var shoeName: String? = null,
+        var shoeCompany: String? = null,
+        var shoeSize: String? = null,
+        var shoeDescription: String? = null,
         val navigateUp: Boolean = false
     )
 
     fun sendEvent(event: StoreEvent): Unit = when (event) {
-        is StoreEvent.OnBrandChanged -> setBrand(event.brand)
-        is StoreEvent.OnDescriptionChanged -> setDescription(event.description)
-        is StoreEvent.OnNameChanged -> setName(event.name)
-        is StoreEvent.OnSizeChanged -> setSize(event.size)
-        StoreEvent.OnSave -> trySaveShoe(_state.value)
+        is StoreEvent.OnSave -> trySaveShoe(event.state)
         StoreEvent.OnCancel -> navigateUp()
-    }
-
-    private fun setBrand(brand: String) {
-        _state.update { s -> s.copy(shoeCompany = brand) }
-    }
-
-    private fun setDescription(description: String) {
-        _state.update { s -> s.copy(shoeDescription = description) }
-    }
-
-    private fun setName(name: String) {
-        _state.update { s -> s.copy(shoeName = name) }
-    }
-
-    private fun setSize(size: String) {
-        _state.update { s -> s.copy(shoeSize = size) }
     }
 
     private fun navigateUp() {
         _state.update { s -> s.copy(navigateUp = !s.navigateUp) }
     }
-
 
     private fun trySaveShoe(state: State) {
         if (validateForm(state)) return
@@ -79,10 +58,6 @@ class StoreSharedViewModel : ViewModel() {
         images = emptyList()
     )
 
-    private fun validateForm(state: State): Boolean {
-        if (state.shoeName.isNullOrBlank() || state.shoeCompany.isNullOrBlank() || state.shoeSize.isNullOrBlank() || state.shoeDescription.isNullOrBlank()) {
-            return true
-        }
-        return false
-    }
+    private fun validateForm(state: State): Boolean =
+        state.shoeName.isNullOrBlank() || state.shoeCompany.isNullOrBlank() || state.shoeSize.isNullOrBlank() || state.shoeDescription.isNullOrBlank()
 }

@@ -18,18 +18,20 @@ class StoreDetailFragment : Fragment(R.layout.fragment_store_detail) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentStoreDetailBinding.bind(view).apply { sendEvent = viewModel::sendEvent }
+        binding = FragmentStoreDetailBinding.bind(view)
+
+        binding.viewModel = this@StoreDetailFragment.viewModel
         state = buildState()
 
-        viewLifecycleOwner.collectFlow(viewModel.state) { uiState ->
+        viewLifecycleOwner.collectFlow(viewModel.state) { uiState: StoreSharedViewModel.State ->
             binding.state = uiState
-            if (uiState.navigateUp) {
-                state.navigateUp(onDone = { viewModel.sendEvent(StoreEvent.OnCancel) })
-            }
+            navigate(uiState.navigateUp)
         }
+    }
 
-        viewLifecycleOwner.collectFlow(viewModel.state) { state ->
-            binding.state = state
+    private fun navigate(navigateUp: Boolean) {
+        if (navigateUp) {
+            state.navigateUp(onDone = { viewModel.sendEvent(StoreEvent.OnCancel) })
         }
     }
 }
