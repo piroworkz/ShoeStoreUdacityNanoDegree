@@ -15,9 +15,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentLoginBinding.bind(view).apply {
-            clickListener = {
-                findNavController().navigate(actionLoginFragmentToWelcomeFragment())
-            }
+            clickListener = { findNavController().navigate(actionLoginFragmentToWelcomeFragment()) }
         }
     }
 }

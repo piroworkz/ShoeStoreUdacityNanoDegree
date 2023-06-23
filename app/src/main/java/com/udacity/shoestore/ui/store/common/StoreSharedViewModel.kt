@@ -1,7 +1,7 @@
 package com.udacity.shoestore.ui.store.common
 
 import androidx.lifecycle.ViewModel
-import com.udacity.shoestore.models.Shoe
+import com.udacity.shoestore.domain.Shoe
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -24,6 +24,7 @@ class StoreSharedViewModel : ViewModel() {
     fun sendEvent(event: StoreEvent): Unit = when (event) {
         is StoreEvent.OnSave -> trySaveShoe(event.state)
         StoreEvent.OnCancel -> navigateUp()
+        StoreEvent.ResetState -> _state.value = State()
     }
 
     private fun navigateUp() {

@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.text.bold
 import androidx.core.text.buildSpannedString
-import com.udacity.shoestore.models.Shoe
+import com.udacity.shoestore.domain.Shoe
 
 class CustomShoeTextView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null

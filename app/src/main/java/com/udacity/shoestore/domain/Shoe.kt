@@ -1,4 +1,4 @@
-package com.udacity.shoestore.models
+package com.udacity.shoestore.domain
 
 data class Shoe(
     var name: String,

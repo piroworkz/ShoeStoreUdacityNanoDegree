@@ -13,6 +13,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentStoreMasterBinding
+import com.udacity.shoestore.ui.store.common.StoreEvent
 import com.udacity.shoestore.ui.store.common.StoreSharedViewModel
 import com.udacity.shoestore.ui.utils.collectFlow
 
@@ -43,6 +44,7 @@ class StoreMasterFragment : Fragment(R.layout.fragment_store_master), MenuProvid
         findNavController().apply {
             popBackStack(R.id.storeMasterFragment, true)
             navigate(R.id.loginFragment)
+            viewModel.sendEvent(StoreEvent.ResetState)
         }
         return true
     }

@@ -4,7 +4,7 @@
 
     <data>
 
-        <import type="com.udacity.shoestore.models.Shoe" />
+        <import type="com.udacity.shoestore.domain.Shoe" />
 
         <variable
             name="shoes"

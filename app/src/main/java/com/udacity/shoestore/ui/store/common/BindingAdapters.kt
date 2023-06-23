@@ -6,7 +6,7 @@ import android.widget.LinearLayout
 import androidx.annotation.RequiresApi
 import androidx.databinding.BindingAdapter
 import com.udacity.shoestore.R
-import com.udacity.shoestore.models.Shoe
+import com.udacity.shoestore.domain.Shoe
 import com.udacity.shoestore.ui.store.master.views.CustomShoeTextView
 
 @BindingAdapter("viewModel", "uiState")

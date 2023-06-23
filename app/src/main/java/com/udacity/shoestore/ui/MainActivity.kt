@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setSupportActionBar(binding.toolbar)
         setupActionBarWithNavController(navController, appBarConfiguration)
-
         binding.onFabClick = {
             navController.navigate(R.id.storeDetailFragment)
         }
@@ -41,10 +40,8 @@ class MainActivity : AppCompatActivity() {
     private fun onDestinationChanged() {
         navController.addOnDestinationChangedListener { _, _: NavDestination, args ->
             val showNavIcon: Boolean = args?.getBoolean(getString(R.string.shownavicon)) == true
+            if (!showNavIcon) binding.toolbar.navigationIcon = null
             binding.showAppBar = args?.getBoolean(getString(R.string.showappbar)) ?: true
-            if (!showNavIcon) {
-                binding.toolbar.navigationIcon = null
-            }
             binding.showFab = args?.getBoolean(getString(R.string.showfab)) == true
         }
     }
