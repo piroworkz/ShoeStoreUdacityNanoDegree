@@ -6,7 +6,8 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ActivityMainBinding
 
@@ -21,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupNavigationUi()
-        setSupportActionBar(binding.toolbar)
         onDestinationChanged()
     }
 
@@ -30,7 +30,9 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(binding.navHostFragment.id) as NavHostFragment
         navController = navHostFragment.navController
         appBarConfiguration = AppBarConfiguration(navController.graph)
-        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
+        setSupportActionBar(binding.toolbar)
+        setupActionBarWithNavController(navController, appBarConfiguration)
+
         binding.onFabClick = {
             navController.navigate(R.id.storeDetailFragment)
         }
@@ -45,5 +47,9 @@ class MainActivity : AppCompatActivity() {
             }
             binding.showFab = args?.getBoolean(getString(R.string.showfab)) == true
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }
