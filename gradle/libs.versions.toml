@@ -1,0 +1,39 @@
+[versions]
+android-gradle = "7.4.2"
+kotlin-gradle = "1.8.10"
+kotlin-parcelize = "1.9.0-Beta"
+#app
+androidx-corektx = "1.10.1"
+androidx-appcompat = "1.6.1"
+androidx-material = "1.9.0"
+androidx-constraintlayout = "2.1.4"
+androidx-navigation = "2.6.0"
+
+#test
+junit = "4.13.2"
+android-test-junit = "1.1.5"
+android-test-espresso = "3.5.1"
+
+[libraries]
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-corektx" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
+androidx-material = { module = "com.google.android.material:material", version.ref = "androidx-material" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "androidx-constraintlayout" }
+androidx-navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidx-navigation" }
+androidx-navigation-ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "androidx-navigation" }
+
+junit = { module = "junit:junit", version.ref = "junit" }
+android-test-junit = { module = "androidx.test.ext:junit", version.ref = "android-test-junit" }
+android-test-espresso = { module = "androidx.test.espresso:espresso-core", version.ref = "android-test-espresso" }
+
+[bundles]
+androidx-app = ["androidx-core-ktx", "androidx-appcompat", "androidx-material", "androidx-constraintlayout"]
+jetpack-navigation = ["androidx-navigation-fragment", "androidx-navigation-ui"]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "android-gradle" }
+kotlin-android-gradle = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-gradle" }
+navigation-safe-args = { id = "androidx.navigation.safeargs.kotlin", version.ref = "androidx-navigation" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin-parcelize" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-parcelize" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin-parcelize" }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Example: -->
+    <!-- <dimen name="margin_small">8dp</dimen> -->
+    <dimen name="font_title">24sp</dimen>
+    <dimen name="font_subtitle">16sp</dimen>
+    <dimen name="font_body">14sp</dimen>
+    <dimen name="font_caption">12sp</dimen>
+    <dimen name="font_button">14sp</dimen>
+
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_xlarge">32dp</dimen>
+    <dimen name="margin_xxlarge">48dp</dimen>
+    <dimen name="margin_xxxlarge">64dp</dimen>
+
+</resources>

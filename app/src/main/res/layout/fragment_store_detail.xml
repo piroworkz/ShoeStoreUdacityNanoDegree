@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="kotlin.jvm.functions.Function1" />
+
+        <import type="com.udacity.shoestore.ui.store.common.StoreEvent" />
+
+        <import type="kotlin.Unit" />
+
+        <import type="com.udacity.shoestore.ui.store.common.StoreSharedViewModel.State" />
+
+        <variable
+            name="sendEvent"
+            type="Function1&lt; StoreEvent, Unit>" />
+
+        <variable
+            name="state"
+            type="State" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_marginVertical="@dimen/margin_medium"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/shoeNameLayout"
+            android:text="@string/text_label_name" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/shoeNameLayout"
+            style="@style/OutlinedTextLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_medium"
+            app:endIconMode="clear_text"
+            app:helperTextEnabled="false"
+            app:placeholderText="@string/hint_enter_shoe_name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/shoeName"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:text="@{state.shoeName}"
+                app:sendEvent="@{event -> sendEvent.invoke((com.udacity.shoestore.ui.store.common.StoreEvent) event)}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            style="@style/Label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/shoeCompanyLayout"
+            android:text="@string/text_label_brand" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/shoeCompanyLayout"
+            style="@style/OutlinedTextLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_medium"
+            app:endIconMode="clear_text"
+            app:helperTextEnabled="false"
+            app:placeholderText="@string/hint_enter_shoe_brand">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/shoeCompany"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:text="@{state.shoeCompany}"
+                app:sendEvent="@{event -> sendEvent.invoke((com.udacity.shoestore.ui.store.common.StoreEvent) event)}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            style="@style/Label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/shoeSizeLayout"
+            android:text="@string/text_label_size" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/shoeSizeLayout"
+            style="@style/OutlinedTextLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_medium"
+            app:endIconMode="clear_text"
+            app:helperTextEnabled="false"
+            app:placeholderText="@string/hint_enter_shoe_size">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/shoeSize"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:text="@{state.shoeSize}"
+                app:sendEvent="@{event -> sendEvent.invoke((com.udacity.shoestore.ui.store.common.StoreEvent) event)}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            style="@style/Label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/shoeDescriptionLayout"
+            android:text="@string/text_label_description" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/shoeDescriptionLayout"
+            style="@style/OutlinedTextLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_medium"
+            app:endIconMode="clear_text"
+            app:helperTextEnabled="false"
+            app:placeholderText="@string/hint_enter_shoe_description">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/shoeDescription"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:imeOptions="actionDone"
+                android:inputType="textMultiLine"
+                android:lines="6"
+                android:maxLines="10"
+                android:text="@{state.shoeDescription}"
+                app:sendEvent="@{event -> sendEvent.invoke((com.udacity.shoestore.ui.store.common.StoreEvent) event)}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/saveShoesButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_save_shoes"
+            app:onButtonEvent="@{event -> sendEvent.invoke((com.udacity.shoestore.ui.store.common.StoreEvent) event)}" />
+
+        <Button
+            android:id="@+id/cancelButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_cancel"
+            app:onButtonEvent="@{event -> sendEvent.invoke((com.udacity.shoestore.ui.store.common.StoreEvent) event)}" />
+
+    </LinearLayout>
+</layout>

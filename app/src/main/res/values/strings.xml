@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="text_welcome_message">"Welcome to our Shoe Store!</string>
+    <string name="label_email">Email</string>
+    <string name="hint_enter_email">Enter your email:</string>
+    <string name="background_description">background</string>
+    <string name="button_sign_in">Sign in</string>
+    <string name="button_sign_up"><u>Sign up</u></string>
+    <string name="shownavicon">showNavIcon</string>
+    <string name="showappbar">showAppBar</string>
+    <string name="text_welcome_second_message">Store a list of your favorite shoes.</string>
+    <string name="button_get_started">Get Started</string>
+    <string name="button_continue">Continue</string>
+    <string name="shoe_store_title">Shoe Store</string>
+    <string name="text_first_instruction">Press GET STARTED to continue</string>
+    <string name="text_second_instruction">On the next screen press the \"+\" button on the bottom right corner! Fill out the form and save your favorite shoes.</string>
+    <string name="showfab">showFab</string>
+    <string name="welcome_title">Welcome!</string>
+    <string name="fab_description">navigate to detail</string>
+    <string name="logout">Logout</string>
+    <string name="sign_out">Sign out</string>
+    <string name="text_label_description">Description</string>
+    <string name="text_label_size">Size</string>
+    <string name="text_label_brand">Brand</string>
+    <string name="text_label_name">Name</string>
+    <string name="hint_enter_shoe_name">Enter shoe name:</string>
+    <string name="hint_enter_shoe_brand">Enter shoe brand:</string>
+    <string name="hint_enter_shoe_size">Enter shoe size:</string>
+    <string name="hint_enter_shoe_description">Description …</string>
+    <string name="label_pass">Password</string>
+    <string name="hint_enter_pass">Enter your password:</string>
+    <string name="button_save_shoes">Save Shoes</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="fab_button_description" translatable="false">Add new shoe</string>
+</resources>

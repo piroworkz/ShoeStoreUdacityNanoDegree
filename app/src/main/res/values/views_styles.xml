@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="OutlinedTextLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/edit_text_color</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="android:textColorHint">@color/edit_text_color</item>
+        <item name="hintTextColor">@color/colorWhite</item>
+        <item name="endIconTint">@color/colorWhite</item>
+        <item name="placeholderTextAppearance">@style/Caption</item>
+        <item name="placeholderTextColor">@color/colorWhite</item>
+    </style>
+
+    <style name="EditText" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColorHint">@color/colorWhite</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+</resources>
